@@ -48,7 +48,7 @@
     const button = document.getElementById('startButton');
     const timerDiv = document.getElementById('timer');
     const image = document.getElementById('image');
-    const sound = document.getElementById('sound'); // Reference to the audio element
+    const sound = document.getElementById('sound'); 
 
     button.addEventListener('click', () => {
       let countdown = 5;
@@ -62,14 +62,14 @@
           clearInterval(timer);
           timerDiv.textContent = '';
           image.style.display = 'block';
-          sound.play(); // Play the sound
+          sound.play(); 
           button.remove();
         }
       }, 1000);
 
       setTimeout(() => {
         window.close();
-      }, 5100);
+      }, 5250);
     });
   </script>
 </body>
