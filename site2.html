@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Big Red Button</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: white;
+      flex-direction: column;
+    }
+    button {
+      width: 150px;
+      height: 150px;
+      background-color: red;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      color: transparent;
+    }
+    #timer {
+      font-size: 48px;
+      height: 30px; 
+      margin-top: 40px;
+    }
+    #image {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <button id="startButton"></button>
+    <div id="timer"></div>
+    <img id="image" src="https://i.gifer.com/origin/a0/a07ad08920f303f655251b1a0b353b86_w200.gif" alt="Image" width="500">
+    <audio id="sound" src="explosion (mp3cut.net).mp3"></audio>
+  </div>
+  
+  <script>
+    const button = document.getElementById('startButton');
+    const timerDiv = document.getElementById('timer');
+    const image = document.getElementById('image');
+    const sound = document.getElementById('sound'); // Reference to the audio element
+
+    button.addEventListener('click', () => {
+      let countdown = 5;
+      timerDiv.textContent = countdown;
+
+      const timer = setInterval(() => {
+        countdown--;
+        if (countdown > 0) {
+          timerDiv.textContent = countdown;
+        } else {
+          clearInterval(timer);
+          timerDiv.textContent = '';
+          image.style.display = 'block';
+          sound.play(); // Play the sound
+          button.remove();
+        }
+      }, 1000);
+
+      setTimeout(() => {
+        window.close();
+      }, 5100);
+    });
+  </script>
+</body>
+</html>
