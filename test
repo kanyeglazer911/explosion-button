@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Play Audio After Timer</title>
+</head>
+<body>
+  <p>The audio will play after the timer ends!</p>
+  <audio id="myAudio" src="explosion.mp3"></audio>
+
+  <script>
+    // Set the timer duration (in milliseconds)
+    const timerDuration = 5000; // 5000 ms = 5 seconds
+
+    // Use setTimeout to play the audio after the timer ends
+    setTimeout(() => {
+      const audio = document.getElementById('myAudio');
+      audio.play();
+    }, timerDuration);
+  </script>
+</body>
